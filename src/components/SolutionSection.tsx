@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 const SolutionSection = () => {
   return (
@@ -6,7 +7,13 @@ const SolutionSection = () => {
       <div className="section-container">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Visual flow */}
-          <div className="flex-1">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex-1"
+          >
             <div className="relative">
               {/* Flow diagram */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
@@ -16,7 +23,14 @@ const SolutionSection = () => {
                   { step: "3", label: "Places Order" },
                   { step: "4", label: "Kitchen Receives" },
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15, duration: 0.5 }}
+                    className="flex items-center"
+                  >
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-xl shadow-lg">
                         {item.step}
@@ -28,14 +42,20 @@ const SolutionSection = () => {
                     {index < 3 && (
                       <ArrowRight className="w-8 h-8 text-accent mx-2 hidden md:block" />
                     )}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div className="flex-1">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex-1"
+          >
             <span className="inline-block bg-green-light text-green px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
               The Solution
             </span>
@@ -54,15 +74,22 @@ const SolutionSection = () => {
                 "Works on any smartphone",
                 // "Setup in under 30 minutes",
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.4 }}
+                  className="flex items-center gap-3"
+                >
                   <div className="w-6 h-6 rounded-full bg-green-light flex items-center justify-center">
                     <Check className="w-4 h-4 text-green" />
                   </div>
                   <span className="text-primary font-medium">{item}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

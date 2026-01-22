@@ -1,16 +1,32 @@
 import { QrCode, Smartphone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const BrochureHeader = () => {
   return (
     <header className="relative bg-pattern py-16 overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-10 right-10 w-32 h-32 bg-orange-light rounded-full blur-3xl opacity-60" />
-      <div className="absolute bottom-10 left-10 w-24 h-24 bg-muted rounded-full blur-2xl opacity-40" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.6, scale: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-10 right-10 w-32 h-32 bg-orange-light rounded-full blur-3xl"
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.4, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.2 }}
+        className="absolute bottom-10 left-10 w-24 h-24 bg-muted rounded-full blur-2xl"
+      />
 
       <div className="section-container">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left content */}
-          <div className="flex-1 text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex-1 text-center lg:text-left"
+          >
             {/* Logo */}
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-8">
               <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center">
@@ -32,10 +48,15 @@ const BrochureHeader = () => {
               Transform your restaurant with QR-based digital ordering.
               No app downloads. No training needed.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right visual */}
-          <div className="flex-1 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-1 relative"
+          >
             <div className="relative w-full max-w-sm mx-auto">
               {/* Phone mockup */}
               <div className="relative bg-navy rounded-[3rem] p-3 shadow-2xl">
@@ -67,19 +88,23 @@ const BrochureHeader = () => {
               </div>
 
               {/* QR code floating element */}
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 bg-background rounded-2xl shadow-xl p-4 animate-float">
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -left-8 top-1/2 -translate-y-1/2 bg-background rounded-2xl shadow-xl p-4"
+              >
                 <div className="w-20 h-20 bg-primary rounded-lg flex items-center justify-center">
                   <QrCode className="w-14 h-14 text-primary-foreground" />
                 </div>
                 <p className="text-xs text-center mt-2 text-muted-foreground font-medium">Scan Me!</p>
-              </div>
+              </motion.div>
 
               {/* Smartphone icon */}
               <div className="absolute -right-4 bottom-20 bg-accent rounded-full p-3 shadow-lg">
                 <Smartphone className="w-6 h-6 text-accent-foreground" />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </header>

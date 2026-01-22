@@ -1,11 +1,12 @@
-import { 
-  QrCode, 
-  BookOpen, 
-  ShoppingCart, 
-  ChefHat, 
-  Receipt, 
-  LayoutDashboard 
+import {
+  QrCode,
+  BookOpen,
+  ShoppingCart,
+  ChefHat,
+  Receipt,
+  LayoutDashboard
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -40,11 +41,31 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 const FeaturesSection = () => {
   return (
     <section className="py-16 bg-muted">
       <div className="section-container">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <span className="inline-block bg-orange-light text-accent px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
             Powerful Features
           </span>
@@ -54,11 +75,21 @@ const FeaturesSection = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A complete solution designed specifically for Indian restaurants, cafés, and hotels.
           </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {features.map((feature, index) => (
-            <div key={index} className="feature-card group">
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="feature-card group"
+            >
               <div className="flex items-start gap-4">
                 <div className="icon-box group-hover:scale-110 transition-transform">
                   <feature.icon className="w-6 h-6" />
@@ -72,9 +103,9 @@ const FeaturesSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
