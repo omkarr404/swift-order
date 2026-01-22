@@ -15,30 +15,38 @@ const PricingSection = () => {
             No hidden fees. No long-term contracts. Cancel anytime.
           </p>
         </div>
-        
+
         <div className="max-w-md mx-auto">
           <div className="relative bg-background rounded-3xl border-2 border-accent shadow-2xl shadow-accent/10 overflow-hidden">
             {/* Badge */}
             <div className="absolute top-4 right-4">
-              <span className="price-badge flex items-center gap-1">
+              {/* <span className="price-badge flex items-center gap-1">
                 <Gift className="w-4 h-4" />
                 7 Days Free
-              </span>
+              </span> */}
             </div>
-            
+
             <div className="p-8">
               {/* Price */}
               <div className="text-center mb-8">
-                <p className="text-muted-foreground mb-2">Starting from</p>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl font-bold text-primary font-display">₹999</span>
-                  <span className="text-muted-foreground">/ month</span>
+                <p className="text-muted-foreground mb-1">Starting from</p>
+                <div className="flex flex-col items-center">
+                  <span className="text-xl text-muted-foreground line-through opacity-70">₹2,999</span>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-5xl font-bold text-primary font-display">₹1,599</span>
+                    <span className="text-muted-foreground">/ month</span>
+                  </div>
+                  <div className="mt-3">
+                    <span className="bg-orange-light text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                      Early Bird Offer
+                    </span>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm text-muted-foreground mt-4">
                   Per restaurant location
                 </p>
               </div>
-              
+
               {/* Features list */}
               <div className="space-y-4 mb-8">
                 {[
@@ -58,7 +66,7 @@ const PricingSection = () => {
                   </div>
                 ))}
               </div>
-              
+
               {/* Guarantees */}
               <div className="flex flex-wrap gap-3 justify-center text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">

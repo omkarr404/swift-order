@@ -33,7 +33,7 @@ const SolutionSection = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Content */}
           <div className="flex-1">
             <span className="inline-block bg-green-light text-green px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
@@ -43,16 +43,16 @@ const SolutionSection = () => {
               Simplify Your Operations
             </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Customers scan a QR code at their table, browse your beautiful digital menu, 
-              and place orders directly. Orders go straight to the kitchen or counter — 
+              Customers scan a QR code at their table, browse your beautiful digital menu,
+              and place orders directly. Orders go straight to the kitchen or counter —
               <span className="text-primary font-semibold"> reducing errors and speeding up service by 40%.</span>
             </p>
-            
+
             <div className="space-y-4">
               {[
                 "No app download required for customers",
                 "Works on any smartphone",
-                "Setup in under 30 minutes",
+                // "Setup in under 30 minutes",
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-green-light flex items-center justify-center">
