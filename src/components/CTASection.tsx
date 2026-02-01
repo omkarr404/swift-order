@@ -1,5 +1,6 @@
 import { QrCode, MessageCircle, Phone } from "lucide-react";
 import { motion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 
 const CTASection = () => {
   return (
@@ -25,14 +26,14 @@ const CTASection = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
-                  href="https://wa.me/7304650706"
+                  href={siteConfig.contact.whatsapp}
                   className="cta-button inline-flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Get Started
                 </a>
                 <a
-                  href="tel:+917304650706"
+                  href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
                   className="cta-button-outline inline-flex items-center justify-center gap-2"
                 >
                   <Phone className="w-5 h-5" />
@@ -42,12 +43,12 @@ const CTASection = () => {
 
               {/* Contact info */}
               <div className="mt-8 flex flex-wrap gap-6 justify-center lg:justify-start text-muted-foreground">
-                <a href="https://wa.me/7304650706" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <a href={siteConfig.contact.whatsapp} className="flex items-center gap-2 hover:text-accent transition-colors">
                   <MessageCircle className="w-5 h-5" />
-                  <span>+91 73046 50706</span>
+                  <span>{siteConfig.contact.phone}</span>
                 </a>
-                <a href="mailto:quick.order001@gmail.com" className="flex items-center gap-2 hover:text-accent transition-colors">
-                  <span>quick.order001@gmail.com</span>
+                <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-2 hover:text-accent transition-colors">
+                  <span>{siteConfig.contact.email}</span>
                 </a>
               </div>
             </div>
@@ -85,13 +86,13 @@ const CTASection = () => {
             <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
               <QrCode className="w-5 h-5 text-accent-foreground" />
             </div>
-            <span className="text-xl font-display font-bold text-primary">QuickOrder</span>
+            <span className="text-xl font-display font-bold text-primary">{siteConfig.name}</span>
           </div>
           <p className="text-sm text-muted-foreground">
             Made with ❤️ for Indian Restaurants
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            © 2026 QuickOrder. All rights reserved.
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import { Check, Gift } from "lucide-react";
 import { motion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 
 const PricingSection = () => {
   return (
@@ -44,9 +45,9 @@ const PricingSection = () => {
               <div className="text-center mb-8">
                 <p className="text-muted-foreground mb-1">Starting from</p>
                 <div className="flex flex-col items-center">
-                  <span className="text-xl text-muted-foreground line-through opacity-70">₹2,999</span>
+                  <span className="text-xl text-muted-foreground line-through opacity-70">₹{siteConfig.pricing.original}</span>
                   <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-5xl font-bold text-primary font-display">₹1,599</span>
+                    <span className="text-5xl font-bold text-primary font-display">₹{siteConfig.pricing.discounted}</span>
                     <span className="text-muted-foreground">/ month</span>
                   </div>
                   <div className="mt-3">

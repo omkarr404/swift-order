@@ -1,5 +1,6 @@
 import { QrCode, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
+import { siteConfig } from "@/config/site";
 
 const BrochureHeader = () => {
   return (
@@ -33,7 +34,7 @@ const BrochureHeader = () => {
                 <QrCode className="w-7 h-7 text-accent-foreground" />
               </div>
               <span className="text-3xl font-display font-bold text-primary">
-                QuickOrder
+                {siteConfig.name}
               </span>
             </div>
 
